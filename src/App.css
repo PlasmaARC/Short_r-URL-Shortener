@@ -1,16 +1,16 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    width: 100%;
-    height: 100vh;
-    background: rgb(8, 6, 48);
-    background: linear-gradient(
-      90deg,
-      rgba(8, 6, 48, 1) 17%,
-      rgba(60, 0, 79, 1) 100%,
-      rgba(0, 212, 255, 1) 100%
-    );
-  }
-  
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: rgb(8, 6, 48);
+  background: linear-gradient(
+    90deg,
+    rgba(8, 6, 48, 1) 17%,
+    rgba(60, 0, 79, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
