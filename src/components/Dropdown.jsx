@@ -138,7 +138,7 @@ const Dropdown = ({ user }) => {
                     className="w-full px-3 py-2 text-sm bg-red-700 cursor-pointer focus:opacity-50 text-white rounded-md"
                   >
                     {loading ? (
-                      <BeatLoader width={1} color="#000" />
+                      <BeatLoader width={"25%"} color="#000" />
                     ) : (
                       "Log Out"
                     )}

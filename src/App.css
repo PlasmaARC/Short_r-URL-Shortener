@@ -4,6 +4,7 @@
 
 body {
   width: 100%;
+  color: white;
   height: 100vh;
   background: rgb(8, 6, 48);
   background: linear-gradient(
