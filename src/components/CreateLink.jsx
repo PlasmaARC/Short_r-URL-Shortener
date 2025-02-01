@@ -121,7 +121,7 @@ const CreateLink = () => {
             {errors.longUrl && <Error message={errors.longUrl} />}
 
             <div className="flex items-center gap-2 mt-2">
-              <span className="p-2 border rounded">trimrr.in</span> /
+              <span className="p-2 border rounded">localhost/</span> /
               <input
                 id="customUrl"
                 placeholder="Custom Link (optional)"

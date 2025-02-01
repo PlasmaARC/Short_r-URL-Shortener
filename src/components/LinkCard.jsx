@@ -33,7 +33,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-2xl text-blue-400 font-bold hover:underline cursor-pointer">
-          https://trimmer.in/{url?.custom_url ? url?.custom_url : url.short_url}
+          http://localhost:5173/{url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="flex items-center fap-1 hover:underline cursor-pointer">
           {url?.original_url}
