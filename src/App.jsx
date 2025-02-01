@@ -8,6 +8,7 @@ import Link from "./pages/link";
 import RedirectLink from "./pages/redirect-link";
 import Auth from "./pages/auth";
 import UrlProvider from "./context";
+import RequireAuth from "./components/require-auth";
 //New React Router Navigation Setup is good.
 
 //Must Provide a default layout to share across all pages
@@ -22,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <RequireAuth>
+            <Dashboard/>
+          </RequireAuth>
+          ),
       },
       {
         path: "/auth",
@@ -30,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/link/:id",
-        element: <Link />,
+        element: (
+        <RequireAuth>
+          <Link />
+        </RequireAuth>
+        ),
       },
       {
         path: "/:id",

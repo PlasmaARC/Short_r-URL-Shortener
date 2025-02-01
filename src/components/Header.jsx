@@ -1,13 +1,14 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/react.svg";
 import Dropdown from "./Dropdown";
+import { UrlState } from "@/context";
 
 const Header = () => {
   //We need to navigate to Auth when clicking on Logi in
   //for that we need Navigation from react-router-dom
   const navigate = useNavigate();
   //we will make a dropdown for user if loggedin
-  const user = false;
+ const {user, fetchUser} =  UrlState()
   return (
       <nav className=" flex justify-between items-center w-full">
         <div className="flex items-center">
@@ -25,7 +26,7 @@ const Header = () => {
             Login
           </button>
         ) : (
-          <Dropdown />
+          <Dropdown user={user} />
         )}
       </nav>
   );

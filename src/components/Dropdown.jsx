@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 
-const Dropdown = () => {
+const Dropdown = ({user}) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-40 rounded-md bg-none">
@@ -16,8 +17,8 @@ const Dropdown = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <span className="font-semibold text-sm dark:text-white text-gray-900">
-            User Name
+          <span className="font-semibold text-sm text-black">
+            {user?.user_metadata?.name || "Guest"}
           </span>
           <svg
             className="w-5 h-5 text-gray-900 dark:text-white"
@@ -122,5 +123,15 @@ const Dropdown = () => {
     </div>
   );
 };
+
+Dropdown.propTypes = {
+  user: PropTypes.shape({
+    user_metadata: PropTypes.shape({
+      name: PropTypes.string, // Ensuring name is a string
+    }),
+  }),
+};
+
+
 
 export default Dropdown;

@@ -77,12 +77,12 @@ const Signup = () => {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900 min-h-[450px] rounded-md flex items-center justify-center px-4">
+    <section className="bg-white min-h-[450px] rounded-md flex items-center justify-center px-4">
       <div className="w-full rounded-md p-4 bg-white">
         <div className="space-y-6">
           <a
             href="#"
-            className="flex items-center justify-center text-2xl font-semibold text-gray-900 dark:text-white"
+            className="flex items-center justify-center text-2xl font-semibold text-black"
           >
             <img
               className="w-8 h-8 mr-2"
@@ -91,14 +91,14 @@ const Signup = () => {
             />
             My Company Name
           </a>
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white text-center">
+          <h1 className="text-xl md:text-2xl font-bold text-black text-center">
             Create a New Account
           </h1>
           <form className="space-y-6" action="#">
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-sm font-medium text-black"
               >
                 Enter Your Name
               </label>
@@ -107,7 +107,7 @@ const Signup = () => {
                 type="text"
                 name="name"
                 id="name"
-                className="w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full p-2.5 border rounded-lg bg-gray-50 text-black "
                 placeholder="eg: John Doe"
               />
               {errors.name && <Error message={errors.name} />}
@@ -115,7 +115,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-sm font-medium text-black"
               >
                 Your email
               </label>
@@ -124,7 +124,7 @@ const Signup = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full p-2.5 border rounded-lg bg-gray-50 text-black "
                 placeholder="name@email.com"
               />
               {errors.email && <Error message={errors.email} />}
@@ -132,7 +132,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-sm font-medium text-black"
               >
                 Password
               </label>
@@ -142,14 +142,14 @@ const Signup = () => {
                 name="password"
                 id="password"
                 placeholder="••••••••"
-                className="w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full p-2.5 border rounded-lg bg-gray-50 text-black "
               />
               {errors.password && <Error message={errors.password} />}
             </div>
             <div>
               <label
                 htmlFor="profile_pic"
-                className="block text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-sm font-medium text-black"
               >
                 Upload Your Profile Picture
               </label>
@@ -159,14 +159,14 @@ const Signup = () => {
                 name="profile_pic"
                 id="profile_pic"
                 accept="image/*"
-                className="w-full p-2.5 border rounded-lg bg-gray-50 text-gray-900 focus:ring-primary-600 focus:border-primary-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="w-full p-2.5 border rounded-lg bg-gray-50 text-black "
               />
               {errors.profile_pic && <Error message={errors.profile_pic} />}
             </div>
             <button
               onClick={handleSignup}
               type="button"
-              className="w-full py-2.5 text-white bg-black rounded-lg text-sm font-medium hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              className="w-full py-2.5 text-white bg-black rounded-lg text-sm font-medium hover:bg-primary-700 focus:ring-2"
             >
               {loading ? <ClipLoader size={15} color="#fff" /> : "Create Account"}
             </button>

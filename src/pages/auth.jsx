@@ -10,14 +10,15 @@ const Auth = () => {
   const navigate = useNavigate();
   const {isAuthenticated, loading} = UrlState()
   const longLink = searchParams.get("createNew")
-
+  
+  // console.log("Loading:", loading, "Authenticated:", isAuthenticated);
   const [activeTab, setActiveTab] = useState("login");
 
   useEffect(() => {
     if(isAuthenticated &&!loading){
       navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`)
     }
-  }, [isAuthenticated,loading,longLink])
+  }, [isAuthenticated, loading, longLink, navigate])
   
 
   return (
@@ -29,7 +30,7 @@ const Auth = () => {
       </h1>
       {/* Now Make a login and signup functionality using Supabase */}
       {/* <div className="bg-green-600 p-2"> */}
-        <div className=" w-[375px] text-white bg-slate-900 p-2">
+        <div className=" w-[375px] text-white bg-slate-100 rounded-2xl p-2">
           <div className="flex gap-2 bg-none p-1 items-center justify-evenly">
             <button
               className={`w-[50%] font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer bg-black  ${
