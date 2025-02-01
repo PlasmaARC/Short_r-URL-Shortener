@@ -8,18 +8,20 @@ const UrlContext = createContext();
 
 const UrlProvider = ({ children }) => {
   const { data: user, loading, fn: fetchUser } = useFetch(getCurrentUser);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null); // ✅ Store user state locally
 
   useEffect(() => {
     fetchUser();
-  }, []); // ✅ Run only once when component mounts
+  }, []);
 
   useEffect(() => {
-    setIsAuthenticated(user?.role === "authenticated");
-  }, [user]); // ✅ Only update when `user` changes
+    setCurrentUser(user); // ✅ Update local user state when `user` changes
+  }, [user]);
+
+  const isAuthenticated = currentUser?.role === "authenticated";
 
   return (
-    <UrlContext.Provider value={{ user, fetchUser, loading, isAuthenticated }}>
+    <UrlContext.Provider value={{ user: currentUser, setUser: setCurrentUser, fetchUser, loading, isAuthenticated }}>
       {children}
     </UrlContext.Provider>
   );

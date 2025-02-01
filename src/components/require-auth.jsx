@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { UrlState } from "@/context";
@@ -13,8 +12,8 @@ function RequireAuth({ children }) {
   useEffect(() => {
     if (!isAuthenticated && !loading) navigate("/auth");
 
-    // console.log("Loading:", loading);
-    // console.log("Authenticated:", isAuthenticated);
+    console.log("Loading:", loading);
+    console.log("Authenticated:", isAuthenticated);
 
   }, [isAuthenticated, loading, navigate]);
 

@@ -1,8 +1,18 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import useFetch from "@/hooks/use-fetch";
+import { logout } from "@/db/apiAuth";
+import { useNavigate } from "react-router-dom";
+import { UrlState } from "@/context";
+import { BeatLoader } from "react-spinners";
 
-const Dropdown = ({user}) => {
+const Dropdown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const { fn: fnLogout, loading } = useFetch(logout);
+  const { setUser } = UrlState();
+
   return (
     <div className="w-40 rounded-md bg-none">
       <div className="w-40 relative inline-block text-center rounded-md bg-none">
@@ -12,7 +22,8 @@ const Dropdown = ({user}) => {
         >
           <div className="w-12 h-12 rounded-full overflow-hidden border border-red-900 dark:border-white">
             <img
-              src="https://images.unsplash.com/photo-1610397095767-84a5b4736cbd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+              // eslint-disable-next-line react/prop-types
+              src={user?.user_metadata?.profile_pic}
               alt="Avatar"
               className="w-full h-full object-cover"
             />
@@ -23,7 +34,7 @@ const Dropdown = ({user}) => {
           <svg
             className="w-5 h-5 text-gray-900 dark:text-white"
             viewBox="0 0 20 20"
-            fill="currentColor"
+            fill="#000"
             aria-hidden="true"
           >
             <path
@@ -58,7 +69,7 @@ const Dropdown = ({user}) => {
                       ></path>
                     </svg>
                   </div>
-                  Account
+                  Dashboard
                 </a>
               </li>
               <li className="font-medium">
@@ -88,7 +99,7 @@ const Dropdown = ({user}) => {
                       ></path>
                     </svg>
                   </div>
-                  Setting
+                  Your Links
                 </a>
               </li>
               <hr className="border-black" />
@@ -98,7 +109,7 @@ const Dropdown = ({user}) => {
                   className="flex items-center transition-colors duration-200 hover:text-red-700"
                 >
                   <div className="mr-3 text-black">
-                    <svg
+                    {/* <svg
                       className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
@@ -111,9 +122,28 @@ const Dropdown = ({user}) => {
                         strokeWidth="2"
                         d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                       ></path>
-                    </svg>
+                    </svg> */}
                   </div>
-                  Logout
+                  <button
+                    onClick={async () => {
+                      console.log("Logout button clicked");
+                      try {
+                        await fnLogout();
+                        setUser(null); // ✅ Immediately clear user data
+                        navigate("/");
+                      } catch (error) {
+                        console.error("Logout failed:", error);
+                      }
+                    }}
+                    className="w-full px-3 py-2 text-sm bg-red-700 cursor-pointer focus:opacity-50 text-white rounded-md"
+                  >
+                    {loading ? (
+                      <BeatLoader width={1} color="#000" />
+                    ) : (
+                      "Log Out"
+                    )}
+                  </button>
+                  {/* Logout functionality */}
                 </a>
               </li>
             </ul>
@@ -131,7 +161,5 @@ Dropdown.propTypes = {
     }),
   }),
 };
-
-
 
 export default Dropdown;

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const useFetch = (cb, options = {}) =>{
     const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
     //To make a custom hook atleast one react hooks must be use
     
