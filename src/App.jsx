@@ -7,6 +7,7 @@ import Dashboard from "./pages/dashboard";
 import Link from "./pages/link";
 import RedirectLink from "./pages/redirect-link";
 import Auth from "./pages/auth";
+import UrlProvider from "./context";
 //New React Router Navigation Setup is good.
 
 //Must Provide a default layout to share across all pages
@@ -38,11 +39,12 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 function App() {
   return (
-    <div>
+    <UrlProvider>
       <RouterProvider router={router} />
-    </div>
+    </UrlProvider>
   );
 }
 
