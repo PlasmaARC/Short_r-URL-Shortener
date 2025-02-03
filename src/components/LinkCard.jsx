@@ -20,7 +20,7 @@ const LinkCard = ({ url, fetchUrls }) => {
     document.body.removeChild(anchor);
   };
 
-  const {loading : loadingDelete, fn: fnDelete} = useFetch(deleteUrls)
+  const {loading: loadingDelete, fn:fnDelete} = useFetch(deleteUrls, url.id)
   return (
     <div className="flex flex-col md:flex-row gap-5 border p-4 bg-amber-300 rounded-lg m-2 shadow-lg shadow-black">
       <img
@@ -55,17 +55,13 @@ const LinkCard = ({ url, fetchUrls }) => {
         <button onClick={downloadImage}>
           <Download />
         </button>
-        <button 
-        className="cursor-pointer"
-        onClick={() =>{
-          const id = parseInt(url?.id, 10)
-          // console.log("Deleting ID:", url?.id, "Type:", typeof url?.id);
-
-          fnDelete(id).then(() => fetchUrls())
-        } 
-        }>
+        <button
+         onClick={() => fnDelete().then(() => fetchUrls())}
+         disable={loadingDelete}
+        >
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </button>
+
       </div>
     </div>
   );
