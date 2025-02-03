@@ -99,7 +99,7 @@ const CreateLink = () => {
             <h2 className="text-2xl font-bold mb-4">Create New</h2>
 
             {formValues.longUrl && (
-              <QRCode size={250} value={formValues.longUrl} ref={ref}/>
+              <QRCode size={250} value={formValues.longUrl} ref={ref} />
             )}
 
             <input

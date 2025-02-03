@@ -21,7 +21,15 @@ const UrlProvider = ({ children }) => {
   const isAuthenticated = currentUser?.role === "authenticated";
 
   return (
-    <UrlContext.Provider value={{ user: currentUser, setUser: setCurrentUser, fetchUser, loading, isAuthenticated }}>
+    <UrlContext.Provider
+      value={{
+        user: currentUser,
+        setUser: setCurrentUser,
+        fetchUser,
+        loading,
+        isAuthenticated,
+      }}
+    >
       {children}
     </UrlContext.Provider>
   );

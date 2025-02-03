@@ -1,44 +1,40 @@
-import { getLongURL, storeClicks } from "@/db/apiUrls";
+import { getLongURL } from "@/db/apiUrls";
+import { storeClicks } from "@/db/apiClicks";
 import useFetch from "@/hooks/use-fetch";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 
-
 const RedirectLink = () => {
+  const { id } = useParams();
+  const { loading, data, fn } = useFetch(getLongURL, id);
 
-  const {id} = useParams();
-  const {loading, data, fn} = useFetch(getLongURL,id)
-
-  const {loading: loadingStats, fn: fnStats} = useFetch(storeClicks,{
+  const { loading: loadingStats, fn: fnStats } = useFetch(storeClicks, {
     id: data?.id,
     originalUrl: data?.original_url,
   });
 
-  useEffect(() =>{
+  useEffect(() => {
     fn();
-  },[])
+  }, []);
 
   useEffect(() => {
-    if(!loading && data){
-      fnStats()
+    if (!loading && data) {
+      fnStats();
     }
   }, [loading]);
 
-  if(loading || loadingStats){
-
-    return(
+  if (loading || loadingStats) {
+    return (
       <>
-        <BarLoader width={"100%"} color="#fff"/>
+        <BarLoader width={"100%"} color="#fff" />
         <br />
         Redirecting...
       </>
     );
   }
 
-  return null
+  return null;
+};
 
-}
-  
-
-export default RedirectLink
+export default RedirectLink;

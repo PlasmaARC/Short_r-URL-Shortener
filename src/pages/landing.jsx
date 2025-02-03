@@ -24,7 +24,7 @@ const LandingPage = () => {
         <input
         value={longURL}
         onChange={(e)=> setLongURL(e.target.value)}
-        className="w-full p-2 bg-white text-black border-2 border-red"
+        className="w-full rounded-lg p-2 bg-white text-black border-2 border-red"
          type="url" placeholder="Enter your URL" />
         <button
         type="submit"

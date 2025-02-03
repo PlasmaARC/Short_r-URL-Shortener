@@ -9,7 +9,6 @@ import useFetch from "@/hooks/use-fetch";
 import { useEffect, useState } from "react";
 import { BarLoader } from "react-spinners";
 
-
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { user } = UrlState();
@@ -33,10 +32,9 @@ const Dashboard = () => {
   }, []);
 
   //The functionality to filter out the search
-  const filteredUrls = urls?.filter((url) => 
+  const filteredUrls = urls?.filter((url) =>
     url.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
 
   useEffect(() => {
     if (urls?.length) fnClicks();
@@ -67,23 +65,24 @@ const Dashboard = () => {
         {/* <button className="px-3 py-2 bg-red-800 text-white rounded-lg font-bold ">
           Create a Link
         </button> */}
-        <CreateLink/>
-        </div>
+        <CreateLink />
+      </div>
 
       {/* Creating a Filter */}
       <div>
-        <input type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search..."
-        className="w-full bg-white rounded-md p-2 text-black "
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search..."
+          className="w-full bg-white rounded-md p-2 text-black "
         />
-        {error && <Error message={error.message}/>}
+        {error && <Error message={error.message} />}
         {(filteredUrls || []).map((url, i) => (
-        <LinkCard key={i} url={url} fetchUrls={fnUrls} />
-      ))}
+          <LinkCard key={i} url={url} fetchUrls={fnUrls} />
+        ))}
       </div>
-     {/* <LinkCard /> */}
+      {/* <LinkCard /> */}
     </>
   );
 };

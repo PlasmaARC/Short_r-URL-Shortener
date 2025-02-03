@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/react.svg";
+import logo from "../assets/white_logo.png";
 import Dropdown from "./Dropdown";
 import { UrlState } from "@/context";
 import { BarLoader } from "react-spinners";
@@ -9,7 +9,7 @@ const Header = () => {
   //for that we need Navigation from react-router-dom
   const navigate = useNavigate();
   //we will make a dropdown for user if loggedin
- const {user, fetchUser, loading} =  UrlState()
+ const {user, loading} =  UrlState()
 
   return (
     <>
@@ -17,9 +17,9 @@ const Header = () => {
         <div className="flex items-center">
         <NavLink to="/">
           <img src={logo} alt="A logo"
-          width={75} />
+          width={175} />
         </NavLink>
-        <span className="text-white text-3xl font-bold ">URL KING</span>
+        {/* <span className="text-white text-3xl font-bold ">Short_r</span> */}
         </div>
         {!user ? (
           <button

@@ -1,26 +1,26 @@
 import { Link } from "react-router-dom";
-import { Copy, Download, LinkIcon, Trash } from "lucide-react";
+import { Copy, Download, Trash } from "lucide-react";
 import { BeatLoader } from "react-spinners";
 import useFetch from "@/hooks/use-fetch";
 import { deleteUrls } from "@/db/apiUrls";
 
 /* eslint-disable react/prop-types */
 const LinkCard = ({ url, fetchUrls }) => {
-    const downloadImage = () => {
-        const imageUrl = url?.qr;
-        const fileName = url?.title;
+  const downloadImage = () => {
+    const imageUrl = url?.qr;
+    const fileName = url?.title;
 
-        //Creating an anchor element
-        const anchor = document.createElement("a");
-        anchor.href = imageUrl;
-        anchor.download = fileName;
+    //Creating an anchor element
+    const anchor = document.createElement("a");
+    anchor.href = imageUrl;
+    anchor.download = fileName;
 
-        document.body.appendChild(anchor);
-        anchor.click();
-        document.body.removeChild(anchor);
-    }
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  };
 
-    const {loading: loadingDelete, fn:fnDelete} = useFetch(deleteUrls, url.id)
+  const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrls, url.id);
   return (
     <div className="flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg">
       <img
@@ -33,7 +33,8 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-2xl text-blue-400 font-bold hover:underline cursor-pointer">
-          http://localhost:5173/{url?.custom_url ? url?.custom_url : url.short_url}
+          http://localhost:5173/
+          {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="flex items-center fap-1 hover:underline cursor-pointer">
           {url?.original_url}
@@ -44,22 +45,17 @@ const LinkCard = ({ url, fetchUrls }) => {
       </Link>
 
       <div className="flex gap-2">
-        <button 
-        onClick={() =>
+        <button
+          onClick={() =>
             navigator.clipboard.writeText(`https://trimrr.in/${url?.short_url}`)
           }
         >
           <Copy />
         </button>
-        <button
-        onClick={downloadImage}
-        >
+        <button onClick={downloadImage}>
           <Download />
         </button>
-        <button
-         onClick={() => fnDelete().then(() => fetchUrls())}
-         disable={loadingDelete}
-        >
+        <button onClick={() => fnDelete().then(() => fetchUrls())}>
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </button>
       </div>

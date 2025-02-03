@@ -14,7 +14,6 @@ function RequireAuth({ children }) {
 
     console.log("Loading:", loading);
     console.log("Authenticated:", isAuthenticated);
-
   }, [isAuthenticated, loading, navigate]);
 
   if (loading) return <BarLoader width={"100%"} color="#36d7b7" />;
