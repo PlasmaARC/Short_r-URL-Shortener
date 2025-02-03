@@ -94,8 +94,8 @@ const CreateLink = () => {
         Create New Link
       </button>
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-slate-700 p-6 rounded-lg shadow-lg max-w-md w-full">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-50 bg-opacity-50">
+          <div className="bg-gray-50 p-6 rounded-lg shadow-lg max-w-md w-full">
             <h2 className="text-2xl font-bold mb-4">Create New</h2>
 
             {formValues.longUrl && (
@@ -121,7 +121,7 @@ const CreateLink = () => {
             {errors.longUrl && <Error message={errors.longUrl} />}
 
             <div className="flex items-center gap-2 mt-2">
-              <span className="p-2 border rounded">localhost/</span> /
+              <span className="p-2 border rounded">localhost</span> /
               <input
                 id="customUrl"
                 placeholder="Custom Link (optional)"

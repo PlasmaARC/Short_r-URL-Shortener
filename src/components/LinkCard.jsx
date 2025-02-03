@@ -20,9 +20,9 @@ const LinkCard = ({ url, fetchUrls }) => {
     document.body.removeChild(anchor);
   };
 
-  const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrls, url.id);
+  const {loading : loadingDelete, fn: fnDelete} = useFetch(deleteUrls)
   return (
-    <div className="flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg">
+    <div className="flex flex-col md:flex-row gap-5 border p-4 bg-amber-300 rounded-lg m-2 shadow-lg shadow-black">
       <img
         className="h-32 object-contain ring ring-blue-500 self-start"
         src={url.qr}
@@ -36,7 +36,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           http://localhost:5173/
           {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
-        <span className="flex items-center fap-1 hover:underline cursor-pointer">
+        <span className="flex items-center text-sm font-light hover:underline cursor-pointer">
           {url?.original_url}
         </span>
         <span className="flex items-end font-extralight text-sm flex-1">
@@ -47,7 +47,7 @@ const LinkCard = ({ url, fetchUrls }) => {
       <div className="flex gap-2">
         <button
           onClick={() =>
-            navigator.clipboard.writeText(`https://trimrr.in/${url?.short_url}`)
+            navigator.clipboard.writeText(`http://localhost:5173/${url?.short_url}`)
           }
         >
           <Copy />
@@ -55,7 +55,15 @@ const LinkCard = ({ url, fetchUrls }) => {
         <button onClick={downloadImage}>
           <Download />
         </button>
-        <button onClick={() => fnDelete().then(() => fetchUrls())}>
+        <button 
+        className="cursor-pointer"
+        onClick={() =>{
+          const id = parseInt(url?.id, 10)
+          // console.log("Deleting ID:", url?.id, "Type:", typeof url?.id);
+
+          fnDelete(id).then(() => fetchUrls())
+        } 
+        }>
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </button>
       </div>

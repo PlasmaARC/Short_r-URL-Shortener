@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 
 const AppLayout = () => {
@@ -9,9 +10,10 @@ const AppLayout = () => {
         <Header/>
         <Outlet/>
       </main>
-      <div className="text-center bg-[#ececee] p-10 font-bold ">
+      {/* <div className="text-center bg-[#ececee] p-10 font-bold ">
         Made with Love 😍 by PlasmaARC
-      </div>
+      </div> */}
+      <Footer/>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/white_logo.png";
+import logo from "../assets/black_logo.png";
 import Dropdown from "./Dropdown";
 import { UrlState } from "@/context";
 import { BarLoader } from "react-spinners";
@@ -13,11 +13,11 @@ const Header = () => {
 
   return (
     <>
-      <nav className=" flex justify-between items-center w-full">
+      <nav className=" flex justify-between items-center w-full bg-gray-50 z-50">
         <div className="flex items-center">
         <NavLink to="/">
           <img src={logo} alt="A logo"
-          width={175} />
+         className=" w-40 h-25 object-contain" />
         </NavLink>
         {/* <span className="text-white text-3xl font-bold ">Short_r</span> */}
         </div>

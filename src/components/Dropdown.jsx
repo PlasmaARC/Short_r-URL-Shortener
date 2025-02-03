@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import useFetch from "@/hooks/use-fetch";
 import { logout } from "@/db/apiAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UrlState } from "@/context";
 import { BeatLoader } from "react-spinners";
+import home from "../assets/home.svg";
 
 const Dropdown = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +15,10 @@ const Dropdown = ({ user }) => {
   const { setUser } = UrlState();
 
   return (
-    <div className="w-40 rounded-md bg-none">
-      <div className="w-40 relative inline-block text-center rounded-md bg-none">
+    <div className="m-5 w-auto rounded-lg bg-slate-50  ">
+      <div className="w-auto relative inline-block text-center rounded-md bg-none">
         <div
-          className="w-40 flex items-center cursor-pointer gap-1 p-1 rounded-md bg-slate-50 bg-opacity-20 backdrop-blur-md shadow-lg"
+          className="w-auto flex items-center cursor-pointer gap-2 p-1 rounded-md bg-slate-50 bg-opacity-20 backdrop-blur-md shadow-lg"
           onClick={() => setIsOpen(!isOpen)}
         >
           <div className="w-12 h-12 rounded-full overflow-hidden border border-red-900 dark:border-white">
@@ -46,18 +47,19 @@ const Dropdown = ({ user }) => {
         </div>
 
         {isOpen && (
-          <div className="absolute px-5 py-3 bg-white text-black rounded-lg shadow border dark:border-transparent mt-5 transition transform opacity-100 scale-100">
-            <ul className="space-y-3">
-              <li className="font-medium">
-                <a
-                  href="#"
+          <div className="absolute px-4 py-3 bg-slate-50 text-black rounded-lg shadow-lg  mt-2 transition transform opacity-100 scale-100">
+            <ul className="space-y-3 text-sm">
+              <li className="font-medium ">
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  to="/dashboard"
                   className="flex items-center transition-colors duration-200 hover:text-red-700"
                 >
                   <div className="mr-3">
                     <svg
                       className="w-6 h-6 text-black"
-                      fill="none"
-                      stroke="currentColor"
+                      fill="#000"
+                      stroke="black"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -70,15 +72,16 @@ const Dropdown = ({ user }) => {
                     </svg>
                   </div>
                   Dashboard
-                </a>
+                </Link>
               </li>
               <li className="font-medium">
-                <a
-                  href="#"
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  to="/"
                   className="flex items-center transition-colors duration-200 hover:text-red-700"
                 >
                   <div className="mr-3">
-                    <svg
+                    {/* <svg
                       className="w-6 h-6 text-black"
                       fill="none"
                       stroke="currentColor"
@@ -97,10 +100,12 @@ const Dropdown = ({ user }) => {
                         strokeWidth="2"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                       ></path>
-                    </svg>
+                    </svg> */}
+
+                    <img src={home} alt="A home" />
                   </div>
-                  Your Links
-                </a>
+                  Home
+                </Link>
               </li>
               <hr className="border-black" />
               <li className="font-medium">

@@ -1,13 +1,13 @@
 import { UrlState } from "@/context";
 
-import { getUrl,deleteUrls } from "@/db/apiUrls";
+import { getUrl, deleteUrls } from "@/db/apiUrls";
 import useFetch from "@/hooks/use-fetch";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
-import { Copy,Trash,Download } from "lucide-react";
-
+import { Copy, Trash, Download } from "lucide-react";
+import banner from "../assets/short_clip.png";
 
 const Link = () => {
   const downloadImage = () => {
@@ -46,7 +46,7 @@ const Link = () => {
   //   fn: fnStats,
   // } = useFetch(getClicksForUrl, id);
 
-  const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrls);
+  const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrls,id);
 
   let link = "";
   if (url) {
@@ -68,32 +68,41 @@ const Link = () => {
   return (
     <>
       {loading && <BarLoader width={"100%"} color="#fff" />}
-      <div className="flex justify-center items-center min-h-screen bg-amber-300">
-        <div className="flex flex-col gap-8 sm:flex-row justify-between items-center bg-amber-300 p-8 rounded-lg shadow-lg">
-          <div className="flex flex-col items-start gap-8 rounded-lg sm:w-2/5">
-            <span className="text-6xl font-extrabold hover:underline cursor-pointer">
+      <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-2 bg-red-100 p-5 shadow-2xl shadow-black">
+        {/* Image Container */}
+        <div className="w-full md:w-1/2">
+          <img
+            src={banner}
+            alt="A banner"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Details Card */}
+        <div className="w-full md:w-auto max-w-md bg-amber-300 p-4 rounded-lg shadow-lg">
+          <div className="flex flex-col items-start gap-3">
+            <span className="text-4xl md:text-6xl font-extrabold hover:underline cursor-pointer break-words whitespace-normal">
               {url?.title?.toUpperCase()}
             </span>
             <a
-              href={`https://trimrr.in/${link}`}
+              href={`http://localhost:5173/${link}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
+              className="text-2xl md:text-3xl text-blue-400 font-bold hover:underline cursor-pointer break-words whitespace-normal"
             >
-              https://trimrr.in/{link}
+              http://localhost:5173/{link}
             </a>
             <a
               href={url?.original_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:underline cursor-pointer"
+              className="flex items-center gap-1 hover:underline cursor-pointer text-red-500 break-words whitespace-normal"
             >
               {url?.original_url}
             </a>
-            <span className="flex items-end font-extralight text-sm">
+            <span className="font-extralight text-sm break-words whitespace-normal">
               {new Date(url?.created_at).toLocaleString()}
             </span>
-
             <div className="flex gap-2">
               <button
                 onClick={() =>
@@ -112,16 +121,13 @@ const Link = () => {
                   })
                 }
               >
-               
-                  <Trash />
-                
+                <Trash />
               </button>
             </div>
-
             <img
               src={url?.qr}
-              className="w-full self-center sm:self-start ring ring-blue-500 p-1 object-contain"
               alt="qr code"
+              className="w-32 md:w-48 ring ring-blue-500 p-1 object-contain"
             />
           </div>
         </div>

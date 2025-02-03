@@ -11,7 +11,7 @@ const LandingPage = () => {
     if(longURL) navigate(`/auth?createNew=${longURL}`)
   }
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full ">
       <h2
       className="bg-gradient-to-r from-white via-[#E94A4A] to-[#FFF1F1] bg-clip-text text-transparent
        my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-center font-extrabold">

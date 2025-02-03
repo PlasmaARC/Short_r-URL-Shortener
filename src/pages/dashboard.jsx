@@ -44,22 +44,22 @@ const Dashboard = () => {
     <>
       {(loading || loadingClicks) && <BarLoader width={"100%"} color="#fff" />}
 
-      <div className="m-2 bg-white h-[200px] flex p-2 justify-between items-center gap-3">
-        <div className="border w-[50%] h-full text-center rouned-lg bg-slate-100 text-black">
-          <div>Links Created</div>
+      <div className="m-2 bg-slate-50 h-[150px] flex p-2 justify-between items-center gap-3 shadow shadow-amber-300 ">
+        <div className="border border-white w-[50%]  h-full text-center rouned-lg bg-amber-300 text-black flex flex-col items-center justify-center shadow-2xl">
+          <div className="text-xl font-bold underline ">Links Created</div>
           <div>
-            <p>{urls?.length}</p>
+            <p className="font-bold">{urls?.length}</p>
           </div>
         </div>
-        <div className="border w-[50%] h-full text-center rouned-lg bg-slate-100 text-black">
-          <div>Total Clicks</div>
-          <div>
-            <p>{clicks?.length}</p>
+        <div className="border border-white w-[50%]  h-full text-center rouned-lg bg-amber-300 text-black flex flex-col items-center justify-center shadow-2xl">
+          <div className="text-xl font-bold underline">Total Clicks</div>
+          <div >
+            <p className="font-bold">{clicks?.length}</p>
           </div>
         </div>
       </div>
 
-      <div className="bg-black flex justify-between items-center">
+      <div className=" p-2 flex justify-between items-center">
         <h1 className="text-3xl font-bold">My Links</h1>
         {/* A button to create a Link and can be made a component with a dialog box */}
         {/* <button className="px-3 py-2 bg-red-800 text-white rounded-lg font-bold ">
@@ -69,13 +69,13 @@ const Dashboard = () => {
       </div>
 
       {/* Creating a Filter */}
-      <div>
+      <div className="m-2">
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search..."
-          className="w-full bg-white rounded-md p-2 text-black "
+          className="w-full border-1 border-amber-300 rounded-md p-2 text-black "
         />
         {error && <Error message={error.message} />}
         {(filteredUrls || []).map((url, i) => (
