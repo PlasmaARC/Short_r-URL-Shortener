@@ -108,7 +108,7 @@ const Link = () => {
             <div className="flex gap-2">
               <button
                 onClick={() =>
-                  navigator.clipboard.writeText(`https://trimrr.in/${link}`)
+                  navigator.clipboard.writeText(`http://localhost:5173/${link}`)
                 }
               >
                 <Copy />

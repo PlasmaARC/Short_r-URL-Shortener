@@ -1,8 +1,4 @@
-# React + Vite
+# Short_r : A Simpel and Efficient URL Shortener with QR Code Generation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Project Description
+Short_r is a sleek, user-friendly URL shortener designed to simplify link sharing. Built with React (Vite) and Supabase, it allows users to shorten long URLs, generate scannable QR codes, and track link performance. The app features an intuitive dashboard to manage created links, monitor click counts, and delete or download QR codes. With secure authentication powered by Supabase, Short_r offers a seamless experience for both users and developers, making link management efficient and fun. Future enhancements include advanced analytics, custom redirection, and personalized user profiles.

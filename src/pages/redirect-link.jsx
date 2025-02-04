@@ -3,7 +3,7 @@ import { storeClicks } from "@/db/apiClicks";
 import useFetch from "@/hooks/use-fetch";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BarLoader } from "react-spinners";
+import { BarLoader,  RingLoader } from "react-spinners";
 
 const RedirectLink = () => {
   const { id } = useParams();
@@ -16,12 +16,14 @@ const RedirectLink = () => {
 
   useEffect(() => {
     fn();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (!loading && data) {
       fnStats();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   if (loading || loadingStats) {
@@ -29,7 +31,10 @@ const RedirectLink = () => {
       <>
         <BarLoader width={"100%"} color="#fff" />
         <br />
-        Redirecting...
+        <h1 className="text-5xl text-center">You are being redirected...</h1>
+        <span className="flex justify-center items-center m-15">
+          <RingLoader width={25} height={25} color="red"/>
+        </span>
       </>
     );
   }
