@@ -92,8 +92,8 @@
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/short_r.git
-cd short_r
+[git clone https://github.com/PlasmaARC/Short_r-URL-Shortener.git)
+cd Short_r-URL-Shortener
 ```
 
 ### 2️⃣ **Install Dependencies**  
