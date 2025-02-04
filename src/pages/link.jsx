@@ -1,15 +1,17 @@
 import { UrlState } from "@/context";
 
-import { getUrl, deleteUrls } from "@/db/apiUrls";
+import { getUrl } from "@/db/apiUrls";
 import useFetch from "@/hooks/use-fetch";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
-import { Copy, Trash, Download } from "lucide-react";
+import { Copy,  Download } from "lucide-react";
 import banner from "../assets/short_clip.png";
 
 const Link = () => {
+
+
   const downloadImage = () => {
     const imageUrl = url?.qr;
     const fileName = url?.title;
@@ -46,7 +48,6 @@ const Link = () => {
   //   fn: fnStats,
   // } = useFetch(getClicksForUrl, id);
 
-  const { loading: loadingDelete, fn: fnDelete } = useFetch(deleteUrls,id);
 
   let link = "";
   if (url) {
@@ -55,6 +56,7 @@ const Link = () => {
 
   useEffect(() => {
     fn();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // useEffect(() => {
@@ -68,7 +70,7 @@ const Link = () => {
   return (
     <>
       {loading && <BarLoader width={"100%"} color="#fff" />}
-      <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-2 bg-red-100 p-5 shadow-2xl shadow-black">
+      <div className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-2 bg-gray-100 p-5 shadow-2xl shadow-black">
         {/* Image Container */}
         <div className="w-full md:w-1/2">
           <img
@@ -79,7 +81,7 @@ const Link = () => {
         </div>
 
         {/* Details Card */}
-        <div className="w-full md:w-auto max-w-md bg-amber-300 p-4 rounded-lg shadow-lg">
+        <div className="w-full md:w-auto max-w-md bg-amber-300 p-4 rounded-lg shadow-lg shadow-black">
           <div className="flex flex-col items-start gap-3">
             <span className="text-4xl md:text-6xl font-extrabold hover:underline cursor-pointer break-words whitespace-normal">
               {url?.title?.toUpperCase()}
@@ -88,7 +90,7 @@ const Link = () => {
               href={`http://localhost:5173/${link}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl md:text-3xl text-blue-400 font-bold hover:underline cursor-pointer break-words whitespace-normal"
+              className="text-2xl md:text-3xl text-blue-500 font-bold hover:underline cursor-pointer break-words whitespace-normal"
             >
               http://localhost:5173/{link}
             </a>
@@ -114,20 +116,12 @@ const Link = () => {
               <button onClick={downloadImage}>
                 <Download />
               </button>
-              <button
-                onClick={() =>
-                  fnDelete().then(() => {
-                    navigate("/dashboard");
-                  })
-                }
-              >
-                <Trash />
-              </button>
+              
             </div>
             <img
               src={url?.qr}
               alt="qr code"
-              className="w-32 md:w-48 ring ring-blue-500 p-1 object-contain"
+              className="w-32 md:w-48 ring ring-red-500 p-1 object-contain"
             />
           </div>
         </div>

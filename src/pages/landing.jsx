@@ -1,5 +1,5 @@
 import Accordion from "@/components/Accordian"
-import banner from "../assets/banner.png"
+import banner from "../assets/banner_url.png"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 

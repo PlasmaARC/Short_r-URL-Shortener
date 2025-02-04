@@ -29,6 +29,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fnUrls();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //The functionality to filter out the search
@@ -38,20 +39,21 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (urls?.length) fnClicks();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urls?.length]);
 
   return (
     <>
       {(loading || loadingClicks) && <BarLoader width={"100%"} color="#fff" />}
 
-      <div className="m-2 bg-slate-50 h-[150px] flex p-2 justify-between items-center gap-3 shadow shadow-amber-300 ">
-        <div className="border border-white w-[50%]  h-full text-center rouned-lg bg-amber-300 text-black flex flex-col items-center justify-center shadow-2xl">
+      <div className="m-2 bg-slate-50 h-[150px] flex p-2 justify-between items-center gap-3 s ">
+        <div className="border border-white w-[50%]  h-full text-center rouned-lg bg-red-900 text-white flex flex-col items-center justify-center shadow-lg shadow-black">
           <div className="text-xl font-bold underline ">Links Created</div>
           <div>
             <p className="font-bold">{urls?.length}</p>
           </div>
         </div>
-        <div className="border border-white w-[50%]  h-full text-center rouned-lg bg-amber-300 text-black flex flex-col items-center justify-center shadow-2xl">
+        <div className="border border-white w-[50%]  h-full text-center rouned-lg bg-red-900 text-white flex flex-col items-center justify-center shadow-lg shadow-black">
           <div className="text-xl font-bold underline">Total Clicks</div>
           <div >
             <p className="font-bold">{clicks?.length}</p>
@@ -75,7 +77,7 @@ const Dashboard = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search..."
-          className="w-full border-1 border-amber-300 rounded-md p-2 text-black "
+          className="w-full border-1 border-red-400 rounded-md p-2 text-black shadow-2xl "
         />
         {error && <Error message={error.message} />}
         {(filteredUrls || []).map((url, i) => (

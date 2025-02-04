@@ -22,9 +22,9 @@ const LinkCard = ({ url, fetchUrls }) => {
 
   const {loading: loadingDelete, fn:fnDelete} = useFetch(deleteUrls, url.id)
   return (
-    <div className="flex flex-col md:flex-row gap-5 border p-4 bg-amber-300 rounded-lg m-2 shadow-lg shadow-black">
+    <div className="flex flex-col md:flex-row gap-5 border p-4 bg-white rounded-lg m-2 shadow-2xl shadow-black">
       <img
-        className="h-32 object-contain ring ring-blue-500 self-start"
+        className="h-32 object-contain ring ring-red-600 self-start"
         src={url.qr}
         alt="A QR Code"
       />
@@ -32,11 +32,11 @@ const LinkCard = ({ url, fetchUrls }) => {
         <span className="text-3xl font-bold hover:underline cursor-pointer">
           {url?.title}
         </span>
-        <span className="text-2xl text-blue-400 font-bold hover:underline cursor-pointer">
+        <span className="text-2xl text-blue-500 font-bold hover:underline cursor-pointer">
           http://localhost:5173/
           {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
-        <span className="flex items-center text-sm font-light hover:underline cursor-pointer">
+        <span className="text-sm text-red-500 font-bold hover:underline cursor-pointer ">
           {url?.original_url}
         </span>
         <span className="flex items-end font-extralight text-sm flex-1">
@@ -57,7 +57,7 @@ const LinkCard = ({ url, fetchUrls }) => {
         </button>
         <button
          onClick={() => fnDelete().then(() => fetchUrls())}
-         disable={loadingDelete}
+        //  disable={loadingDelete}
         >
           {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
         </button>

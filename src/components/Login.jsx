@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import Error from "./Error";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { UrlState } from "@/context";
+import logo from "../assets/black_logo.png"
 
 const Login = () => {
   let [searchParams] = useSearchParams();
@@ -75,21 +76,21 @@ const Login = () => {
 
   return (
     <>
-      <section className="bg-white min-h-[450px] rounded-md flex items-center justify-center px-4">
+      <section className="bg-white min-h-[400px] rounded-md flex items-center justify-center px-4">
         <div className="w-full rounded-md p-4 bg-white ">
-          <div className="space-y-6">
+          <div className="space-y-4">
             <a
               href="#"
               className="flex items-center justify-center text-2xl font-semibold text-black "
             >
               <img
-                className="w-8 h-8 mr-2"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+                className="w-50 h-20 object-cover mr-2"
+                src={logo}
                 alt="logo"
               />
-              Flowbite
+              
             </a>
-            <h1 className="text-xl md:text-2xl font-bold text-black text-center">
+            <h1 className=" text-xl md:text-2xl font-bold text-black text-center">
               Sign in to your account
             </h1>
             <form className="space-y-6" action="#">

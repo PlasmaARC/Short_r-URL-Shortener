@@ -23,17 +23,17 @@ const Auth = () => {
 
   return (
     <div className="mt-10  flex flex-col items-center gap-10">
-      <h1 className="text-white text-3xl font-bold">
+      <h1 className="text-black text-3xl font-bold ">
         {searchParams.get("createNew")
           ? "You need to Login first...."
           : "LogIn / SignUp"}
       </h1>
       {/* Now Make a login and signup functionality using Supabase */}
       {/* <div className="bg-green-600 p-2"> */}
-        <div className=" w-[375px] text-white bg-slate-100 rounded-2xl p-2">
+        <div className=" w-[375px] text-white bg-slate-50 rounded-2xl p-2 shadow-lg shadow-black">
           <div className="flex gap-2 bg-none p-1 items-center justify-evenly">
             <button
-              className={`w-[50%] font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer bg-black  ${
+              className={`w-[50%] font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow shadow-white cursor-pointer bg-black  ${
                 activeTab === "login" ? "ring ring-white" : ""
               }`}
               onClick={() => setActiveTab("login")}
@@ -41,7 +41,7 @@ const Auth = () => {
               LogIn
             </button>
             <button
-              className={`w-[50%] font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer bg-black ${
+              className={`w-[50%] font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow shadow-white cursor-pointer bg-black ${
                 activeTab === "signup" ? "ring ring-white" : ""
               }`}
               onClick={() => setActiveTab("signup")}

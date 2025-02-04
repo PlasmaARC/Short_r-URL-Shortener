@@ -89,13 +89,13 @@ const CreateLink = () => {
     <div className="flex justify-center items-center">
       <button
         onClick={() => setIsOpen(true)}
-        className="px-4 py-2 bg-red-700 text-white rounded-md"
+        className="px-4 py-2 bg-red-700 text-white rounded-md shadow-lg shadow-black"
       >
         Create New Link
       </button>
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-50 bg-opacity-50">
-          <div className="bg-gray-50 p-6 rounded-lg shadow-lg max-w-md w-full">
+          <div className="bg-gray-50 p-6 rounded-lg shadow-xl max-w-md w-full ">
             <h2 className="text-2xl font-bold mb-4">Create New</h2>
 
             {formValues.longUrl && (
@@ -148,7 +148,7 @@ const CreateLink = () => {
               <button
                 onClick={createNewLink}
                 disabled={loading}
-                className="px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer"
+                className="px-4 py-2 bg-red-600 text-white rounded-md cursor-pointer"
               >
                 {loading ? <BeatLoader size={10} color="white" /> : "Create"}
               </button>

@@ -63,7 +63,7 @@ const Accordion = () => {
 
   return (
     <>
-      <span className="text-2xl font-bold">Frequently Asked Questions</span>
+      <span className="text-2xl font-bold">Frequently Asked Questions🚀</span>
       <div className="w-full max-w-md mx-auto rounded-lg ">
         {accordionItems.map((item, index) => (
           <div key={index} className="border-b mb-1 border-amber-400 bg-gray-50 rounded-lg shadow px-1 ">
@@ -71,7 +71,7 @@ const Accordion = () => {
               onClick={() => toggleAccordion(index)}
               className="w-full flex justify-between items-center py-5 text-black"
             >
-              <span className="text-red-700">{item.question}</span>
+              <span className="text-red-600">{item.question}</span>
               <span className="text-slate-800 transition-transform duration-300">
                 {openIndex === index ? (
                   <svg
