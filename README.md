@@ -2,7 +2,7 @@
 # 🔗 **Short_r – A Fast & Simple URL Shortener with QR Code Generation** 🚀
 
 <div style="display: flex; justify-content: center; align-items: center; height: 200px; width: 100%; overflow: hidden;">
-  <img src="white_logo.png" style="object-fit: contain; width: 100%; height: 100%;" />
+  <img src="./src/assets/white_logo.png" style="object-fit: contain; width: 100%; height: 100%;" />
 </div>
 
 
