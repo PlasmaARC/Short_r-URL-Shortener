@@ -25,7 +25,8 @@
 ## 🛠️ **Tech Stack** 💻
 
 - **Frontend:**  
-  - ⚛️ React (Vite)  
+  - ⚛️ React (Vite)
+  - CSS | Tailwind for faster designing
   - 🚗 React Router DOM (for smooth navigation)  
   - 🔄 Context API (for state management)  
   - 🪝 Custom React Hooks (for reusability and organization)  
