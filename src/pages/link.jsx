@@ -87,12 +87,12 @@ const Link = () => {
               {url?.title?.toUpperCase()}
             </span>
             <a
-              href={`http://localhost:5173/${link}`}
+              href={`https://shtr-one.vercel.app/${link}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl md:text-3xl text-blue-500 font-bold hover:underline cursor-pointer break-words whitespace-normal"
             >
-              http://localhost:5173/{link}
+              https://shtr-one.vercel.app/{link}
             </a>
             <a
               href={url?.original_url}
@@ -108,7 +108,7 @@ const Link = () => {
             <div className="flex gap-2">
               <button
                 onClick={() =>
-                  navigator.clipboard.writeText(`http://localhost:5173/${link}`)
+                  navigator.clipboard.writeText(`https://shtr-one.vercel.app/${link}`)
                 }
               >
                 <Copy />
