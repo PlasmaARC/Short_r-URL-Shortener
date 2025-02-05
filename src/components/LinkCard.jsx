@@ -33,7 +33,7 @@ const LinkCard = ({ url, fetchUrls }) => {
           {url?.title}
         </span>
         <span className="text-2xl text-blue-500 font-bold hover:underline cursor-pointer">
-        https://shtr-one.vercel.app/
+        {`${window.location.origin}/`}
           {url?.custom_url ? url?.custom_url : url.short_url}
         </span>
         <span className="text-sm text-red-500 font-bold hover:underline cursor-pointer ">
@@ -47,7 +47,7 @@ const LinkCard = ({ url, fetchUrls }) => {
       <div className="flex gap-2">
         <button
           onClick={() =>
-            navigator.clipboard.writeText(`https://shtr-one.vercel.app/${url?.short_url}`)
+            navigator.clipboard.writeText(`${window.location.origin}/${url?.short_url}`)
           }
         >
           <Copy />
