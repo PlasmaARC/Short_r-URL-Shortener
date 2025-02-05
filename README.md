@@ -41,7 +41,7 @@
 
 # Project Demo:
 
-[![Short_r Demo](https://i9.ytimg.com/vi_webp/9Td8xTJMVsE/mqdefault.webp?v=67a1d936&sqp=COiyh70G&rs=AOn4CLDQ4BcqUfQw1jO0NcFuWYWcirs-Tg)](https://www.youtube.com/watch?v=9Td8xTJMVsE)
+[![Short_r Demo](https://i.ytimg.com/an_webp/9Td8xTJMVsE/mqdefault_6s.webp?du=3000&sqp=CMuQi70G&rs=AOn4CLB0JSaZ8sav9TwlMHQnbuI-9DgZnQ)](https://www.youtube.com/watch?v=9Td8xTJMVsE)
 
 
 # Website WorkFlow
@@ -152,9 +152,9 @@ short_r/
 This project uses **Supabase** for the backend (authentication and database) and offers the following features:
 
 - **API Endpoints:**
-  - `POST /api/apiUrls` – Shortens the URL and stores it in the Supabase database  
-  - `DELETE /api/apiAuth` – Authenticate the users from the database 
-  - `GET /api/apiClicks` – Retrieves stats for a specific link (click count) 📊  
+  - `db/apiUrls` – Shortens the URL and stores it in the Supabase database  
+  - `db/apiAuth` – Authenticate the users from the database 
+  - `db/apiClicks`– Retrieves stats for a specific link (click count) 📊  
 
 - **Database Schema:**  
   - **Tables and the Schema:**  
