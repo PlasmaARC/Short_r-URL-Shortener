@@ -25,7 +25,8 @@
 ## 🛠️ **Tech Stack** 💻
 
 - **Frontend:**  
-  - ⚛️ React (Vite)  
+  - ⚛️ React (Vite)
+  - CSS | Tailwind for faster designing
   - 🚗 React Router DOM (for smooth navigation)  
   - 🔄 Context API (for state management)  
   - 🪝 Custom React Hooks (for reusability and organization)  
@@ -91,8 +92,8 @@
 First, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/short_r.git
-cd short_r
+[git clone https://github.com/PlasmaARC/Short_r-URL-Shortener.git)
+cd Short_r-URL-Shortener
 ```
 
 ### 2️⃣ **Install Dependencies**  
