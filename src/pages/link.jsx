@@ -87,7 +87,7 @@ const Link = () => {
               {url?.title?.toUpperCase()}
             </span>
             <a
-              href={`https://shtr-one.vercel.app/${link}`}
+              href={`http://localhost:5173/${link}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl md:text-3xl text-blue-500 font-bold hover:underline cursor-pointer break-words whitespace-normal"
